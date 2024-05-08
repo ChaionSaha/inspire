@@ -12,10 +12,6 @@ function Navbar() {
     const [categories, setCategories] = useState([]);
     const router = useRouter();
     const [inView, setInview] = useState(true);
-
-    useEffect(() => {
-        console.log((router.asPath.split('/'))[2]);
-    },[router.asPath])
     
     useEffect(() => {
         axios('/api/get-all-categories')
