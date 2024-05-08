@@ -1,5 +1,21 @@
-{
-  "img": "https://i.ibb.co/GMgm4GB/slider-1.png",
-  "title": "inspire gen",
-  "subTitle": "Do-everything, go-everywhere pants that were built to be worn."
-}
+[
+  {
+    "img": "https://i.ibb.co/GMgm4GB/slider-1.png",
+    "title": "inspire gen",
+    "subTitle": "Do-everything, go-everywhere pants that were built to be worn.",
+    "id": "hero-img"
+  },
+  {
+    "id": "hero-section-2",
+    "title": "The New Casual",
+    "subTitle": "Do-everything, go-everywhere pants that were built to be worn.",
+    "images": [
+      {
+        "img": "https://i.ibb.co/f9Zv9CC/women-pant.png"
+      },
+      {
+        "img": "https://i.ibb.co/wpw5LkR/men-pant.png"
+      }
+    ]
+  }
+]

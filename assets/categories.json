@@ -1,0 +1,32 @@
+[
+  {
+    "id": "1",
+    "name": "Shirt",
+    "value": "shirt"
+  },
+  {
+    "id": "2",
+    "name": "T-shirt",
+    "value": "t-shirt"
+  },
+  {
+    "id": "3",
+    "name": "Bag",
+    "value": "bag"
+  },
+  {
+    "id": "4",
+    "name": "Sneakers",
+    "value": "sneakers"
+  },
+  {
+    "id": "5",
+    "name": "Tops",
+    "value": "tops"
+  },
+  {
+    "id": "6",
+    "name": "Jeans",
+    "value": "jeans"
+  }
+]

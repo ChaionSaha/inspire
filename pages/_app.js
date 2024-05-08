@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
 
-export default function App({ Component, pageProps }) {
+export default function App({ Component, pageProps}) {
     const router = useRouter();
 
     return (
@@ -19,3 +19,4 @@ export default function App({ Component, pageProps }) {
         </NextUIProvider>);
   
 }
+
