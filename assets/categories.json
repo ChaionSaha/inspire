@@ -2,31 +2,41 @@
   {
     "id": "1",
     "name": "Shirt",
-    "value": "shirt"
+    "value": "shirt",
+    "featured": true,
+    "img": "https://i.ibb.co/y4TB8rT/shirt.png"
   },
   {
     "id": "2",
     "name": "T-shirt",
-    "value": "t-shirt"
+    "value": "t-shirt",
+    "featured": true,
+    "img": "https://i.ibb.co/5vxp5P0/te-shirt.png"
   },
   {
     "id": "3",
     "name": "Bag",
-    "value": "bag"
+    "value": "bag",
+    "featured": true,
+    "img": "https://i.ibb.co/yk6xC7H/bag.png"
   },
   {
     "id": "4",
     "name": "Sneakers",
-    "value": "sneakers"
+    "value": "sneakers",
+    "featured": true,
+    "img": "https://i.ibb.co/BNxqYS8/sneakers.png"
   },
   {
     "id": "5",
     "name": "Tops",
-    "value": "tops"
+    "value": "tops",
+    "featured": false
   },
   {
     "id": "6",
     "name": "Jeans",
-    "value": "jeans"
+    "value": "jeans",
+    "featured": false
   }
 ]

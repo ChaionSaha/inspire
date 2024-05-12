@@ -1,0 +1,389 @@
+[
+  {
+    "id": "u1",
+    "name": "Oversized Shirt",
+    "gender": "female",
+    "price": "40",
+    "color": "Dark Grey/Zebra Print",
+    "sizes": [
+      {
+        "name": "XXS",
+        "value": "xxs"
+      },
+      {
+        "name": "XS",
+        "value": "xs"
+      },
+      {
+        "name": "S",
+        "value": "s"
+      },
+      {
+        "name": "M",
+        "value": "m"
+      },
+      {
+        "name": "L",
+        "value": "l"
+      },
+      {
+        "name": "XL",
+        "value": "xl"
+      }
+    ],
+    "description": "lorem ipsum dolor sit amet",
+    "images": [
+      {
+        "img": "https://i.ibb.co/ThZkQZ7/product-11.png"
+      },
+      {
+        "img": "https://i.ibb.co/ZBPFNdH/product-12.png"
+      },
+      {
+        "img": "https://i.ibb.co/5kHs299/product-13.png"
+      },
+      {
+        "img": "https://i.ibb.co/K9mVQLL/product-14.png"
+      }
+    ]
+  },
+  {
+    "id": "u2",
+    "name": "Rib White TShirt",
+    "gender": "female",
+    "price": "40",
+    "color": "Dark Grey/Zebra Print",
+    "sizes": [
+      {
+        "name": "XXS",
+        "value": "xxs"
+      },
+      {
+        "name": "XS",
+        "value": "xs"
+      },
+      {
+        "name": "S",
+        "value": "s"
+      },
+      {
+        "name": "M",
+        "value": "m"
+      },
+      {
+        "name": "L",
+        "value": "l"
+      },
+      {
+        "name": "XL",
+        "value": "xl"
+      }
+    ],
+    "description": "lorem ipsum dolor sit amet",
+    "images": [
+      {
+        "img": "https://i.ibb.co/wcbsjh2/product-2.png"
+      },
+      {
+        "img": "https://i.ibb.co/ZBPFNdH/product-12.png"
+      },
+      {
+        "img": "https://i.ibb.co/5kHs299/product-13.png"
+      },
+      {
+        "img": "https://i.ibb.co/K9mVQLL/product-14.png"
+      }
+    ]
+  },
+  {
+    "id": "u3",
+    "name": "Casual White Shirt",
+    "gender": "female",
+    "price": "40",
+    "color": "Dark Grey/Zebra Print",
+    "sizes": [
+      {
+        "name": "XXS",
+        "value": "xxs"
+      },
+      {
+        "name": "XS",
+        "value": "xs"
+      },
+      {
+        "name": "S",
+        "value": "s"
+      },
+      {
+        "name": "M",
+        "value": "m"
+      },
+      {
+        "name": "L",
+        "value": "l"
+      },
+      {
+        "name": "XL",
+        "value": "xl"
+      }
+    ],
+    "description": "lorem ipsum dolor sit amet",
+    "images": [
+      {
+        "img": "https://i.ibb.co/TTxqLSV/product-3.png"
+      },
+      {
+        "img": "https://i.ibb.co/ZBPFNdH/product-12.png"
+      },
+      {
+        "img": "https://i.ibb.co/5kHs299/product-13.png"
+      },
+      {
+        "img": "https://i.ibb.co/K9mVQLL/product-14.png"
+      }
+    ]
+  },
+  {
+    "id": "u4",
+    "name": "Rib White TShirt",
+    "gender": "female",
+    "price": "40",
+    "color": "Dark Grey/Zebra Print",
+    "sizes": [
+      {
+        "name": "XXS",
+        "value": "xxs"
+      },
+      {
+        "name": "XS",
+        "value": "xs"
+      },
+      {
+        "name": "S",
+        "value": "s"
+      },
+      {
+        "name": "M",
+        "value": "m"
+      },
+      {
+        "name": "L",
+        "value": "l"
+      },
+      {
+        "name": "XL",
+        "value": "xl"
+      }
+    ],
+    "description": "lorem ipsum dolor sit amet",
+    "images": [
+      {
+        "img": "https://i.ibb.co/ns85Z7y/product-4.png"
+      },
+      {
+        "img": "https://i.ibb.co/ZBPFNdH/product-12.png"
+      },
+      {
+        "img": "https://i.ibb.co/5kHs299/product-13.png"
+      },
+      {
+        "img": "https://i.ibb.co/K9mVQLL/product-14.png"
+      }
+    ]
+  },
+  {
+    "id": "u5",
+    "name": "Casual White Shirt",
+    "gender": "female",
+    "price": "40",
+    "color": "Dark Grey/Zebra Print",
+    "sizes": [
+      {
+        "name": "XXS",
+        "value": "xxs"
+      },
+      {
+        "name": "XS",
+        "value": "xs"
+      },
+      {
+        "name": "S",
+        "value": "s"
+      },
+      {
+        "name": "M",
+        "value": "m"
+      },
+      {
+        "name": "L",
+        "value": "l"
+      },
+      {
+        "name": "XL",
+        "value": "xl"
+      }
+    ],
+    "description": "lorem ipsum dolor sit amet",
+    "images": [
+      {
+        "img": "https://i.ibb.co/7S7cWjP/product-6.png"
+      },
+      {
+        "img": "https://i.ibb.co/ZBPFNdH/product-12.png"
+      },
+      {
+        "img": "https://i.ibb.co/5kHs299/product-13.png"
+      },
+      {
+        "img": "https://i.ibb.co/K9mVQLL/product-14.png"
+      }
+    ]
+  },
+  {
+    "id": "u6",
+    "name": "Rib White TShirt",
+    "gender": "female",
+    "price": "40",
+    "color": "Dark Grey/Zebra Print",
+    "sizes": [
+      {
+        "name": "XXS",
+        "value": "xxs"
+      },
+      {
+        "name": "XS",
+        "value": "xs"
+      },
+      {
+        "name": "S",
+        "value": "s"
+      },
+      {
+        "name": "M",
+        "value": "m"
+      },
+      {
+        "name": "L",
+        "value": "l"
+      },
+      {
+        "name": "XL",
+        "value": "xl"
+      }
+    ],
+    "description": "lorem ipsum dolor sit amet",
+    "images": [
+      {
+        "img": "https://i.ibb.co/c82SJKT/product-7.png"
+      },
+      {
+        "img": "https://i.ibb.co/zVKQzyz/product-8.png"
+      },
+      {
+        "img": "https://i.ibb.co/q5j6B9S/product-9.png"
+      },
+      {
+        "img": "https://i.ibb.co/K9mVQLL/product-14.png"
+      }
+    ]
+  },
+  {
+    "id": "u7",
+    "name": "Rib White TShirt",
+    "gender": "male",
+    "price": "40",
+    "color": "Dark Grey/Zebra Print",
+    "sizes": [
+      {
+        "name": "XXS",
+        "value": "xxs"
+      },
+      {
+        "name": "XS",
+        "value": "xs"
+      },
+      {
+        "name": "S",
+        "value": "s"
+      },
+      {
+        "name": "M",
+        "value": "m"
+      },
+      {
+        "name": "L",
+        "value": "l"
+      },
+      {
+        "name": "XL",
+        "value": "xl"
+      }
+    ],
+    "description": "lorem ipsum dolor sit amet",
+    "images": [
+      {
+        "img": "https://i.ibb.co/3zJDXCr/product-10.png"
+      },
+      {
+        "img": "https://i.ibb.co/zVKQzyz/product-8.png"
+      },
+      {
+        "img": "https://i.ibb.co/q5j6B9S/product-9.png"
+      },
+      {
+        "img": "https://i.ibb.co/K9mVQLL/product-14.png"
+      }
+    ]
+  },
+  {
+    "id": "u8",
+    "name": "Casual White Shirt",
+    "gender": "male",
+    "price": "40",
+    "color": "Dark Grey/Zebra Print",
+    "sizes": [
+      {
+        "name": "XXS",
+        "value": "xxs"
+      },
+      {
+        "name": "XS",
+        "value": "xs"
+      },
+      {
+        "name": "S",
+        "value": "s"
+      },
+      {
+        "name": "M",
+        "value": "m"
+      },
+      {
+        "name": "L",
+        "value": "l"
+      },
+      {
+        "name": "XL",
+        "value": "xl"
+      }
+    ],
+    "description": "lorem ipsum dolor sit amet",
+    "images": [
+      {
+        "img": "https://i.ibb.co/JjRtTZL/product-16.png"
+      },
+      {
+        "img": "https://i.ibb.co/zVKQzyz/product-8.png"
+      },
+      {
+        "img": "https://i.ibb.co/q5j6B9S/product-9.png"
+      },
+      {
+        "img": "https://i.ibb.co/K9mVQLL/product-14.png"
+      },
+      {
+        "img": "https://i.ibb.co/5vxp5P0/te-shirt.png"
+      }
+    ]
+  }
+]
