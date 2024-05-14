@@ -8,9 +8,9 @@ const FeaturedCategorySection = ({categories}) => {
             <div className="mt-5 grid grid-cols-4 gap-10">
                 {
                     categories.map((c, i) =>
-                        <Link href={`/category/${c.value}`} key={i}>
-                            <div className="relative h-[40vh]">
-                                <Image src={c.img} fill alt={c.name} className="object-cover"/>
+                        <Link href={`/category/${c.value}`} key={i} className="group">
+                            <div className="relative h-[40vh] overflow-hidden">
+                                <Image src={c.img} fill alt={c.name} className="object-cover group-hover:scale-110 duration-300"/>
                             </div>
                             <p className="mt-3 font-medium text-xl">{c.name}</p>
                         </Link>)
