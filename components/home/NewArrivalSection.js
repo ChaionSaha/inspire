@@ -1,7 +1,9 @@
 import { NextIcon, PrevIcon } from "@/assets/icons/CustomIcon";
+import { addToCart } from "@/lib/store";
 import Image from "next/image";
 import Link from "next/link";
 import { useRef } from "react";
+import { useDispatch } from "react-redux";
 import Slider from "react-slick";
 
 const settings = {
@@ -16,6 +18,8 @@ const settings = {
 
 const NewArrivalSection = ({ products }) => {
     const sliderRef = useRef(null);
+    const dispacth = useDispatch();
+
     return (
         <div className="container mx-auto my-10">
             <p className="font-bold text-3xl capitalize">more new arrivals You'll Love</p>
@@ -46,7 +50,11 @@ const NewArrivalSection = ({ products }) => {
                                             <Link href={`/product/${c.id}`} className="mt-3 font-medium text-xl hover:underline">{c.name}</Link>
                                             <p className="text-2xl font-bold">${c.price}</p>
                                         </div>
-                                        <button className="px-3 py-2 border rounded-full self-center hover:border-black duration-300 h-fit group/bag">
+                                        <button
+                                            onClick={() => {
+                                                dispacth(addToCart({ item: c, quantity: 1 }));
+                                            }}
+                                            className="px-3 py-2 border rounded-full self-center hover:border-black duration-300 h-fit group/bag">
                                             <i className="bi bi-bag text-xl text-gray-400 group-hover/bag:text-black duration-150"></i>
                                         </button>
                                     </div>
