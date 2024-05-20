@@ -14,7 +14,7 @@ function Navbar() {
     const router = useRouter();
     const [inView, setInview] = useState(true);
     const [cartOpen, setCartOpen] = useState(false);
-    const cart = useSelector(state => state.cart);
+    const {cart} = useSelector(state => state.cart);
     
     useEffect(() => {
         axios('/api/get-all-categories')
@@ -110,7 +110,7 @@ function Navbar() {
                     {
                         cart.length > 0 ?
                             cart.map((c, i) =>
-                                <div key={i} className='flex gap-x-5'>
+                                <div key={i} className='flex gap-x-5 text-white'>
                                     <div className='relative w-20 h-20'>
                                         <Image src={c.images[0].img} fill alt={c.name} />
                                     </div>

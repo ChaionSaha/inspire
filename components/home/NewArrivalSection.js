@@ -52,7 +52,10 @@ const NewArrivalSection = ({ products }) => {
                                         </div>
                                         <button
                                             onClick={() => {
-                                                dispacth(addToCart({ item: c, quantity: 1 }));
+                                                const newItem = { ...c };
+                                                delete newItem.sizes;
+                                                newItem.selectedSize = c.sizes[0];
+                                                dispacth(addToCart({ item: newItem, quantity: 1 }));
                                             }}
                                             className="px-3 py-2 border rounded-full self-center hover:border-black duration-300 h-fit group/bag">
                                             <i className="bi bi-bag text-xl text-gray-400 group-hover/bag:text-black duration-150"></i>
