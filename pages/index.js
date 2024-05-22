@@ -2,6 +2,7 @@ import AnimateLayout from "@/components/global/AnimateLayout";
 import Title from "@/components/global/Title";
 import CasualSection from "@/components/home/CasualSection";
 import FeaturedCategorySection from "@/components/home/FeaturedCategorySection";
+import FinalSection from "@/components/home/FinalSection";
 import HeroSection from "@/components/home/HeroSection";
 import NewArrivalSection from "@/components/home/NewArrivalSection";
 import { getDatabase } from '@/lib/mongoConnection';
@@ -14,7 +15,8 @@ export default function Home({hero, heroSection2, categories, products}) {
             <HeroSection section={hero}/> 
             <CasualSection section={heroSection2} />
             <FeaturedCategorySection categories={categories} />
-            <NewArrivalSection products={products}/>
+            <NewArrivalSection products={products} />
+            <FinalSection/>
         </AnimateLayout>
     );
 }

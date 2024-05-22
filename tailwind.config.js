@@ -14,7 +14,8 @@ module.exports = {
                 primary: "#131313",
                 "primary-light": "rgba(0, 0, 0, 0.80)",
                 "base-100": "#fff",
-                "base-200":"#F9FAFB"
+                "base-200": "#F9FAFB",
+                "base-300": "rgba(255,255,255,0.3)",
             }
         },
     },
