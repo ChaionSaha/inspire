@@ -14,8 +14,8 @@ const CasualSection = ({section}) => {
                     <p className="text-5xl font-bold">{section.title}</p>
                     <p className="text-2xl">{section.subTitle}</p>
                     <div className="flex gap-x-20 text-2xl underline font-medium">
-                        <Link href={'/category/jeans/men'} >Shop Men Pants</Link>
-                        <Link href={'/category/jeans/women'} >Shop Women Men Pants</Link>
+                        <Link href={'/category/jeans/male'} >Shop Men Pants</Link>
+                        <Link href={'/category/jeans/female'} >Shop Women Men Pants</Link>
                     </div>
                 </div>
             </div>

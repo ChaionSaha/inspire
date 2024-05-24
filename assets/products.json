@@ -5,6 +5,7 @@
     "gender": "female",
     "price": "40",
     "color": "Dark Grey/Zebra Print",
+    "cat": "shirt",
     "sizes": [
       {
         "name": "XXS",
@@ -53,6 +54,7 @@
     "gender": "female",
     "price": "40",
     "color": "Dark Grey/Zebra Print",
+    "cat": "t-shirt",
     "sizes": [
       {
         "name": "XXS",
@@ -101,6 +103,7 @@
     "gender": "female",
     "price": "40",
     "color": "Dark Grey/Zebra Print",
+    "cat": "bag",
     "sizes": [
       {
         "name": "XXS",
@@ -148,6 +151,7 @@
     "name": "Rib White TShirt",
     "gender": "female",
     "price": "40",
+    "cat": "sneakers",
     "color": "Dark Grey/Zebra Print",
     "sizes": [
       {
@@ -196,6 +200,7 @@
     "name": "Casual White Shirt",
     "gender": "female",
     "price": "40",
+    "cat": "tops",
     "color": "Dark Grey/Zebra Print",
     "sizes": [
       {
@@ -244,6 +249,7 @@
     "name": "Rib White TShirt",
     "gender": "female",
     "price": "40",
+    "cat": "jeans",
     "color": "Dark Grey/Zebra Print",
     "sizes": [
       {
@@ -292,6 +298,7 @@
     "name": "Rib White TShirt",
     "gender": "male",
     "price": "40",
+    "cat": "shirt",
     "color": "Dark Grey/Zebra Print",
     "sizes": [
       {
@@ -340,6 +347,7 @@
     "name": "Casual White Shirt",
     "gender": "male",
     "price": "40",
+    "cat": "t-shirt",
     "color": "Dark Grey/Zebra Print",
     "sizes": [
       {
