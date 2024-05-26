@@ -7,24 +7,19 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { InView } from 'react-intersection-observer';
-import { useSelector } from 'react-redux';
+import Cart from './Cart';
 
 function Navbar() {
     const [categories, setCategories] = useState([]);
     const router = useRouter();
     const [inView, setInview] = useState(true);
     const [cartOpen, setCartOpen] = useState(false);
-    const {cart} = useSelector(state => state.cart);
-    
+
     useEffect(() => {
         axios('/api/get-all-categories')
             .then(({ data }) => setCategories(data.categories))
             .catch(err => console.log(err))
     }, [])
-    
-    useEffect(() => {
-        console.log(cart)
-    },[cart])
     
     return (
         <>
@@ -101,29 +96,7 @@ function Navbar() {
                 </div>   
             </div>
             
-            <div className={`fixed bg-primary h-[100vh] flex flex-col overflow-y-auto w-[25%] z-[1000] top-0 right-0 duration-300 ${cartOpen ? 'translate-x-0' : 'translate-x-[100%]'}`}>
-                <div className="p-5 py-7 flex justify-between items-center">
-                    <p className='text-3xl font-medium text-white px-5'>Shopping Bag</p>
-                    <button onClick={()=>setCartOpen(false)} className='text-white text-4xl'><i className='bi bi-x'></i></button>
-                </div>
-                <div className="p-5 flex-grow">
-                    {
-                        cart.length > 0 ?
-                            cart.map((c, i) =>
-                                <div key={i} className='flex gap-x-5 text-white'>
-                                    <div className='relative w-20 h-20'>
-                                        <Image src={c.images[0].img} fill alt={c.name} />
-                                    </div>
-                                    <div>
-                                        <p className='text-lg font-medium'>{c.name}</p>
-                                        <p className='text-lg font-bold'>${c.price}</p>
-                                    </div>
-                                </div>
-                            ) :
-                            <p className='text-lg text-center'>No items in your cart</p>
-                    }
-                </div>
-            </div>
+            <Cart cartOpen={cartOpen} setCartOpen={setCartOpen}/>
         </>
     );
 }
