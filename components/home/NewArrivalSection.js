@@ -1,10 +1,8 @@
 import { NextIcon, PrevIcon } from "@/assets/icons/CustomIcon";
-import { addToCart } from "@/lib/store";
-import Image from "next/image";
-import Link from "next/link";
 import { useRef } from "react";
 import { useDispatch } from "react-redux";
 import Slider from "react-slick";
+import Product from "../category/Product";
 
 const settings = {
     dots: false,
@@ -39,30 +37,7 @@ const NewArrivalSection = ({ products }) => {
                 <Slider {...settings} ref={sliderRef} >
                     {
                         products.map((c, i) =>
-                            <div key={i} className="px-3">
-                                <div className="group">
-                                    <div className="relative h-[55vh] overflow-hidden">
-                                        <Image src={c.images[0].img} fill alt={c.name} className="object-cover opacity-1 group-hover:opacity-0 duration-300 object-right-top"/>
-                                        <Image src={c.images[1].img} fill alt={c.name} className="object-cover opacity-0 group-hover:opacity-[1]  duration-300 object-right-top"/>
-                                    </div>
-                                    <div className="flex justify-between">
-                                        <div className="flex flex-col">
-                                            <Link href={`/product/${c.id}`} className="mt-3 font-medium text-xl hover:underline">{c.name}</Link>
-                                            <p className="text-2xl font-bold">${c.price}</p>
-                                        </div>
-                                        <button
-                                            onClick={() => {
-                                                const newItem = { ...c };
-                                                delete newItem.sizes;
-                                                newItem.selectedSize = c.sizes[0];
-                                                dispacth(addToCart({ item: newItem, quantity: 1 }));
-                                            }}
-                                            className="px-3 py-2 border rounded-full self-center hover:border-black duration-300 h-fit group/bag">
-                                            <i className="bi bi-bag text-xl text-gray-400 group-hover/bag:text-black duration-150"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
+                            <Product key={i} item={c}/>
                         )
                     }
                 </Slider>

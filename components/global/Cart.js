@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import CartItem from "./CartItem";
@@ -5,6 +6,11 @@ import CartItem from "./CartItem";
 const Cart = ({cartOpen, setCartOpen}) => {
     const { cart } = useSelector(state => state.cart);
     const [total, setTotal] = useState(0);
+    const router = useRouter();
+
+    useEffect(() => {
+        setCartOpen(false);
+    },[router.asPath])
 
     useEffect(() => {
         let temp = 0;

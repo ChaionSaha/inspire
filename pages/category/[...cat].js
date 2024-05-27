@@ -1,11 +1,20 @@
+import Product from "@/components/category/Product";
 import AnimateLayout from "@/components/global/AnimateLayout";
 import Title from "@/components/global/Title";
 import { getDatabase } from "@/lib/mongoConnection";
 
-export default function index({products, category}) {
+export default function Index({ products, category }) {
+
     return (
         <AnimateLayout>
-            <Title title={category.name}/>
+            <Title title={category.name} />
+            <div className="grid grid-cols-4 gap-10 container mx-auto py-10">
+                {
+                    products.map((product, i) => (
+                        <Product key={i} item={product}/>
+                    ))
+                }
+            </div>
         </AnimateLayout>
     )
 }
@@ -18,7 +27,14 @@ export async function getServerSideProps({query}) {
     if (cat.length === 2)
         gender = cat[1];
 
-    const products = await db.collection('products').find({ cat: category, gender }, { projection: { _id: 0 } }).toArray();
+    let products;
+
+    if(gender.trim() !== '')
+        products = await db.collection('products').find({ cat: category, gender }, { projection: { _id: 0 } }).toArray();
+    else
+        products = await db.collection('products').find({ cat: category }, { projection: { _id: 0 } }).toArray();
+        
+    
     const categoryDetails = await db.collection('categories').findOne({ value: category }, { projection: { _id: 0 } });
 
     return {
