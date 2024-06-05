@@ -1,33 +1,22 @@
 import AnimateLayout from "@/components/global/AnimateLayout";
 import Title from "@/components/global/Title";
+import NewArrivalsSection from "@/components/product/NewArrivalsSection";
+import ProductDetails from "@/components/product/ProductDetails";
 import { getDatabase } from "@/lib/mongoConnection";
-import Image from "next/image";
+import { useState } from "react";
 
-const Index = ({product, relatedProducts}) => {
+const Index = ({ product, relatedProducts }) => {
+    const [selectedSize, setSelectedSize] = useState('');
+    const [itemCount, setItemCount] = useState(1);
+    const [selectedKeys, setSelectedKeys] = useState(new Set(["1"]));
+
     return (
         <AnimateLayout>
             <Title title={product.name} />
-            <div className="container mx-auto py-10">
-                <div className="flex gap-x-10">
-                    <div className="w-[60%] grid grid-cols-2 gap-3">
-                        {
-                            product.images.map((image, i) => (
-                                <div key={i} className="relative h-[65vh]">
-                                    <Image quality={100} src={image.img} alt={product.name} className="object-cover object-top" fill/>
-                                </div>
-                            ))
-                        }
-                    </div>
-                    <div className="w-[40%]">
-                        <p className="text-4xl font-bold">{product.name}</p>
-                        <p className="text-2xl font-bold mt-5">$ {product.price}</p>
-                        <p className="mt-10 text-xl"> <span className="font-semibold">Color:</span> {product.color} </p>
-                        <div className="mt-10">
-                            <p className="text-2xl font-medium">Select Size</p>
-                            
-                        </div>
-                    </div>
-                </div>
+            <ProductDetails product={product} />
+            
+            <div className="my-20">
+                <NewArrivalsSection products={relatedProducts}/>
             </div>
         </AnimateLayout>
     );

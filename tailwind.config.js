@@ -16,7 +16,8 @@ module.exports = {
                 "base-100": "#fff",
                 "base-200": "#F9FAFB",
                 "base-300": "rgba(255,255,255,0.3)",
-                "fade-white" : "rgba(255,255,255,0.5)"
+                "fade-white": "rgba(255,255,255,0.5)",
+                "dark-100": "#222"
             }
         },
     },
