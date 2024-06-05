@@ -1,12 +1,14 @@
 import { SearchIcon, ShoppingbagIcon, UserIcon } from '@/assets/icons/CustomIcon';
 import blackLogo from '@/assets/logo-black.png';
 import whiteLogo from '@/assets/logo-white.png';
+import { Badge } from '@nextui-org/react';
 import axios from 'axios';
 import Image from "next/image";
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { InView } from 'react-intersection-observer';
+import { useSelector } from 'react-redux';
 import Cart from './Cart';
 
 function Navbar() {
@@ -14,6 +16,7 @@ function Navbar() {
     const router = useRouter();
     const [inView, setInview] = useState(true);
     const [cartOpen, setCartOpen] = useState(false);
+    const cart = useSelector(state => state.cart.cart);
 
     useEffect(() => {
         axios('/api/get-all-categories')
@@ -52,11 +55,13 @@ function Navbar() {
                             <button className='btn btn-sm btn-ghost'>
                                 <SearchIcon color={router.asPath === '/' ?'white':'black'}  className='w-6 h-6'/>
                             </button>
-                            <button className='btn btn-sm btn-ghost'>
+                            <button onClick={()=> router.push('/profile')} className='btn btn-sm btn-ghost'>
                                 <UserIcon color={router.asPath === '/' ?'white':'black'}  className='w-6 h-6'/>
                             </button>
-                            <button className='btn btn-sm btn-ghost' onClick={()=>setCartOpen(state=>!state)}>
-                                <ShoppingbagIcon color={router.asPath === '/' ?'white':'black'} className='w-6 h-6'/>
+                            <button className='btn btn-sm btn-ghost' onClick={() => setCartOpen(state => !state)}>
+                                <Badge content={cart.length}>
+                                    <ShoppingbagIcon color={router.asPath === '/' ?'white':'black'} className='w-6 h-6'/>
+                                </Badge>
                             </button>
                         </div>
                     </div>
@@ -85,11 +90,13 @@ function Navbar() {
                             <button className='btn btn-sm btn-ghost'>
                                 <SearchIcon color={'black'}  className='w-6 h-6'/>
                             </button>
-                            <button className='btn btn-sm btn-ghost'>
+                            <button onClick={()=> router.push('/profile')} className='btn btn-sm btn-ghost'>
                                 <UserIcon color={'black'}  className='w-6 h-6'/>
                             </button>
-                            <button className='btn btn-sm btn-ghost' onClick={()=>setCartOpen(state=>!state)}>
-                                <ShoppingbagIcon color={'black'} className='w-6 h-6'/>
+                            <button className='btn btn-sm btn-ghost' onClick={() => setCartOpen(state => !state)}>
+                                <Badge content={cart.length}>
+                                    <ShoppingbagIcon color={'black'} className='w-6 h-6'/>
+                                </Badge>
                             </button>
                         </div>
                     </div>

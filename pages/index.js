@@ -1,10 +1,11 @@
 import AnimateLayout from "@/components/global/AnimateLayout";
 import Title from "@/components/global/Title";
-import CasualSection from "@/components/home/CasualSection";
-import FeaturedCategorySection from "@/components/home/FeaturedCategorySection";
-import FinalSection from "@/components/home/FinalSection";
-import HeroSection from "@/components/home/HeroSection";
-import NewArrivalSection from "@/components/home/NewArrivalSection";
+import CasualSection from "@/components/Home/CasualSection";
+import FeaturedCategorySection from "@/components/Home/FeaturedCategorySection";
+import FinalSection from "@/components/Home/FinalSection";
+import HeroSection from "@/components/Home/HeroSection";
+import NewArrivalSection from "@/components/Home/NewArrivalSection";
+
 import { getDatabase } from '@/lib/mongoConnection';
 
 

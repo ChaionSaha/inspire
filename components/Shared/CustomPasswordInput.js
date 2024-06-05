@@ -1,0 +1,39 @@
+
+import { EyeFilledIcon, EyeSlashFilledIcon } from "@/assets/icons/CustomIcon";
+import { Input } from "@nextui-org/react";
+import { useState } from "react";
+import { Controller } from "react-hook-form";
+
+const CustomPasswordInput = ({ control, name }) => {
+    const [isVisible, setIsVisible] = useState(false);
+
+    const toggleVisibility = () => setIsVisible(!isVisible);
+    return (
+        <Controller
+            name={name}
+            control={control}
+            render={({ field:{onChange, value} }) => (
+                <Input
+                    label="Password"
+                    variant="bordered"
+                    radius="none"
+                    size="lg"
+                    endContent={
+                        <button className="focus:outline-none" type="button" onClick={toggleVisibility}>
+                            {isVisible ? (
+                                <EyeSlashFilledIcon className="text-2xl text-default-400 pointer-events-none" />
+                            ) : (
+                                <EyeFilledIcon className="text-2xl text-default-400 pointer-events-none" />
+                            )}
+                        </button>
+                    }
+                    type={isVisible ? "text" : "password"}
+                    onValueChange={onChange}
+                    value={value}
+                />
+            )}
+        />
+    );
+}
+
+export default CustomPasswordInput;

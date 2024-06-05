@@ -1,5 +1,6 @@
 import { decrementItem, incrementItem, removeFromCart } from "@/lib/store";
 import Image from "next/image";
+import Link from "next/link";
 import { useDispatch } from "react-redux";
 
 const CartItem = ({ item }) => {
@@ -11,8 +12,8 @@ const CartItem = ({ item }) => {
                 <Image src={item.images[0].img} fill alt={item.name} className="object-contain"/>
             </div>
             <div className="flex-grow">
-                <p className='text-xl font-medium'>{item.name}</p>
-                <p className=' font-bold'>${item.price * item.quantity}</p>
+                <Link href={`/product/${item.id}`} className='text-xl font-medium hover:underline duration-150'>{item.name}</Link>
+                <p className='font-bold'>${item.price * item.quantity}</p>
                 <p className='text-base-200'>Size: {item.selectedSize.name}</p>
                 <div className="flex mt-5 justify-between items-center w-full">
                     <div className="flex items-center ">

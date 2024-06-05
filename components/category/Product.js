@@ -13,7 +13,7 @@ const Product = ({ item }) => {
                     <Image src={item.images[0].img} fill alt={item.name} className="object-cover object-center" />
                     <Link
                         href={`/product/${item.id}`}
-                        className="absolute r top-0 left-0 z-[100] w-full h-full opacity-0 group-hover:opacity-100 duration-500 bg-[rgba(0,0,0,0.5)]">
+                        className="absolute r top-0 left-0 z-[10] w-full h-full opacity-0 group-hover:opacity-100 duration-500 bg-[rgba(0,0,0,0.5)]">
                         
                         <div className="relative flex justify-center items-center w-full h-full">
                             <p className="text-3xl text-white font-medium">View Item</p>
