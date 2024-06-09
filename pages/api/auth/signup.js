@@ -1,12 +1,13 @@
-import { hashPassword } from "@/db/auth";
-import { getDatabase } from "@/db/mongoConnection";
+import { hashPassword } from "@/lib/auth";
+import { getDatabase } from "@/lib/mongoConnection";
+
 
 async function handler(req, res) {
     if (req.method !== 'POST') {
         return;
     }
-    const {name, email, password, confirmPassword} = req.body;
-    if (!name || !email || !password || !confirmPassword || !confirmPassword) {
+    const {firstName, lastName, email, password, confirmPassword} = req.body;
+    if (!firstName || !email || !password || !confirmPassword || !confirmPassword) {
         res.status(400).send({message: `Invalid Input.`});
         return;
     }
@@ -34,7 +35,7 @@ async function handler(req, res) {
         return;
     }
     const hashedPassword = await hashPassword(password);
-    const data = await usersCollection.insertOne({name, email, password: hashedPassword, isApproved: false});
+    const data = await usersCollection.insertOne({firstName, lastName, email, password: hashedPassword});
     res.status(200).send({data});
 }
 

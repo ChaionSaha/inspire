@@ -4,7 +4,7 @@ import { Input } from "@nextui-org/react";
 import { useState } from "react";
 import { Controller } from "react-hook-form";
 
-const CustomPasswordInput = ({ control, name }) => {
+const CustomPasswordInput = ({ control, name, label }) => {
     const [isVisible, setIsVisible] = useState(false);
 
     const toggleVisibility = () => setIsVisible(!isVisible);
@@ -14,7 +14,7 @@ const CustomPasswordInput = ({ control, name }) => {
             control={control}
             render={({ field:{onChange, value} }) => (
                 <Input
-                    label="Password"
+                    label={label ? label : "Password"}
                     variant="bordered"
                     radius="none"
                     size="lg"

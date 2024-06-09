@@ -1,8 +1,9 @@
 import { SearchIcon, ShoppingbagIcon, UserIcon } from '@/assets/icons/CustomIcon';
 import blackLogo from '@/assets/logo-black.png';
 import whiteLogo from '@/assets/logo-white.png';
-import { Badge } from '@nextui-org/react';
+import { Badge, Dropdown, DropdownItem, DropdownMenu, DropdownTrigger } from '@nextui-org/react';
 import axios from 'axios';
+import { getSession, signOut } from 'next-auth/react';
 import Image from "next/image";
 import Link from 'next/link';
 import { useRouter } from 'next/router';
@@ -17,6 +18,15 @@ function Navbar() {
     const [inView, setInview] = useState(true);
     const [cartOpen, setCartOpen] = useState(false);
     const cart = useSelector(state => state.cart.cart);
+    const [session, setSession] = useState(null);
+
+    useEffect(() => {
+        getSession().then(session => {
+            if (session) {
+                setSession(session);
+            }
+        });
+    },[])
 
     useEffect(() => {
         axios('/api/get-all-categories')
@@ -55,9 +65,35 @@ function Navbar() {
                             <button className='btn btn-sm btn-ghost'>
                                 <SearchIcon color={router.asPath === '/' ?'white':'black'}  className='w-6 h-6'/>
                             </button>
-                            <button onClick={()=> router.push('/profile')} className='btn btn-sm btn-ghost'>
-                                <UserIcon color={router.asPath === '/' ?'white':'black'}  className='w-6 h-6'/>
-                            </button>
+                            <Dropdown>
+                                <DropdownTrigger className=' focus:outline-none'>
+                                    <button>
+                                        <UserIcon color={router.asPath === '/' ? 'white' : 'black'} className='w-6 h-6' />
+                                    </button>
+                                </DropdownTrigger>
+                                <DropdownMenu aria-label="Static Actions">
+                                    {
+                                        session && 
+                                                <DropdownItem key="profile" onPress={()=>router.push('/profile')} textValue='profile'>
+                                                    Profile
+                                                </DropdownItem>
+                                    }
+                                            
+                                    
+                                    {
+                                        session ? 
+                                            <DropdownItem key="logout" onPress={()=>signOut()} textValue='login or log out'>
+                                                Log Out
+                                            </DropdownItem> :
+                                            <DropdownItem
+                                                key="logout" onPress={() => router.push('/auth/login')} textValue='login or log out'>
+                                                Login
+                                            </DropdownItem>
+                                    }
+                                    
+                                            
+                                </DropdownMenu>
+                            </Dropdown>
                             <button className='btn btn-sm btn-ghost' onClick={() => setCartOpen(state => !state)}>
                                 <Badge content={cart.length}>
                                     <ShoppingbagIcon color={router.asPath === '/' ?'white':'black'} className='w-6 h-6'/>
@@ -90,9 +126,31 @@ function Navbar() {
                             <button className='btn btn-sm btn-ghost'>
                                 <SearchIcon color={'black'}  className='w-6 h-6'/>
                             </button>
-                            <button onClick={()=> router.push('/profile')} className='btn btn-sm btn-ghost'>
-                                <UserIcon color={'black'}  className='w-6 h-6'/>
-                            </button>
+                            <Dropdown>
+                                <DropdownTrigger className=' focus:outline-none'>
+                                    <button>
+                                        <UserIcon color={'black'} className='w-6 h-6' />
+                                    </button>
+                                </DropdownTrigger>
+                                <DropdownMenu aria-label="Static Actions">
+                                    {
+                                        session && 
+                                                <DropdownItem key="profile" onPress={()=>router.push('/profile')} textValue='profile'>
+                                                    Profile
+                                                </DropdownItem>
+                                    }
+                                    {
+                                        session ? 
+                                            <DropdownItem key="logout" onPress={()=>signOut()} textValue='login or log out'>
+                                                Log Out
+                                            </DropdownItem> :
+                                            <DropdownItem
+                                                key="logout" onPress={() => router.push('/auth/login')} textValue='login or log out'>
+                                                Login
+                                            </DropdownItem>
+                                    }    
+                                </DropdownMenu>
+                            </Dropdown>
                             <button className='btn btn-sm btn-ghost' onClick={() => setCartOpen(state => !state)}>
                                 <Badge content={cart.length}>
                                     <ShoppingbagIcon color={'black'} className='w-6 h-6'/>

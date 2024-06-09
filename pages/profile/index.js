@@ -1,13 +1,17 @@
+import AnimateLayout from "@/components/global/AnimateLayout";
 import { isValidUser } from "@/lib/auth";
 import { getDatabase } from "@/lib/mongoConnection";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../api/auth/[...nextauth]";
 
-const Index = () => {
+const Index = ({user, userOrders=[]}) => {
     return (
-        <div>
-            Enter
-        </div>
+        <AnimateLayout>
+            <div className="container mx-auto my-10">
+                <p className="text-3xl font-semibold">Hello {user.firstName} {user.lastName}</p>
+            </div>
+        </AnimateLayout>
+        
     );
 }
 
@@ -27,8 +31,18 @@ export const getServerSideProps = async (ctx) => {
 
     const db = await getDatabase();
     const session = await getServerSession(ctx.req, ctx.res, authOptions);
-    const user = await db.collection('users').findOne({ email: session?.user?.email });
-    const userOrders = await db.collection('orders').find({ userId: user.uid }).toArray();
+    const user = await db.collection('users').findOne({ email: session?.user?.email }, {
+        projection: {
+            _id:0
+        }
+    });
+    const userOrders = await db.collection('orders').find({ userId: user.uid },
+        {
+            projection: {
+                _id: 0
+            }
+        }
+    ).toArray();
 
     return {
         props:{

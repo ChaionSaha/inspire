@@ -2,15 +2,17 @@ import inspireLogo from '@/assets/logo-black.png';
 import Title from '@/components/global/Title';
 import CustomInput from '@/components/Shared/CustomInput';
 import CustomPasswordInput from '@/components/Shared/CustomPasswordInput';
+import { authOptions } from '@/pages/api/auth/[...nextauth]';
 import { Button, Spinner } from '@nextui-org/react';
-import { signIn } from 'next-auth/react';
+import { getServerSession } from 'next-auth';
+import { signIn, signOut } from 'next-auth/react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 
-const Index = () => {
+const Index =  ({session}) => {
     const { control, handleSubmit } = useForm({
         defaultValues: {
             email: '',
@@ -20,6 +22,11 @@ const Index = () => {
     const [err, setErr] = useState('');
     const [loading, setLoading] = useState(false);
     const router = useRouter();
+    
+
+    useEffect(() => {
+        signOut({redirect: false});
+    }, [session]);
 
     const handleLogin = async (formData) => {
         setErr('');
@@ -31,7 +38,8 @@ const Index = () => {
 
         setLoading(true);
         const {email, password} = formData;
-        const data = await signIn('credentials', {redirect: false, email, password});
+        const data = await signIn('credentials', { email, password, redirect: false });
+        console.log(data);
         setLoading(false);
         if (data.error || data.status !== 200) {
             setErr(data.error);
@@ -66,6 +74,7 @@ const Index = () => {
                             {loading ? <Spinner/> : "Login"} 
                         </Button>
                     </div>
+                    <Link href='/auth/signup' className='text-center underline'>Create a new account</Link>
                 </form>
             </div>
         </>
@@ -73,3 +82,13 @@ const Index = () => {
 }
 
 export default Index;
+
+export const getServerSideProps = async (ctx) => {
+    const session  = await getServerSession(ctx.req, ctx.res, authOptions) 
+
+    return {
+        props:{
+            session: JSON.stringify(session)
+        }
+    }
+}
