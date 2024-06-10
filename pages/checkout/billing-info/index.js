@@ -61,7 +61,12 @@ const Index = () => {
                             {
                                 err && <p className="text-red-500">{err}</p>
                             }
-                            <Button type="submit" className="w-full bg-black text-white rounded">Save & Continue</Button>
+                            <Button
+                                size="lg"
+                                type="submit"
+                                className="w-full bg-black text-white rounded">
+                                Save & Continue
+                            </Button>
                         </div>
                     </form>
                 </div>

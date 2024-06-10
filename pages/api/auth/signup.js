@@ -1,5 +1,6 @@
 import { hashPassword } from "@/lib/auth";
 import { getDatabase } from "@/lib/mongoConnection";
+import { v4 as uuid } from "uuid";
 
 
 async function handler(req, res) {
@@ -35,7 +36,8 @@ async function handler(req, res) {
         return;
     }
     const hashedPassword = await hashPassword(password);
-    const data = await usersCollection.insertOne({firstName, lastName, email, password: hashedPassword});
+    const uid = uuid().split('-').join('').slice(0, 10);
+    const data = await usersCollection.insertOne({firstName, lastName, email, password: hashedPassword, uid});
     res.status(200).send({data});
 }
 

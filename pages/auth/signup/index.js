@@ -70,7 +70,7 @@ const Index = () => {
 
     return (
         <>
-            <Title title='Login'/>
+            <Title title='Sign Up'/>
             <div className="w-full h-[100vh] flex flex-col justify-center items-center border">
                 <Link href={'/'}>
                     <Image src={inspireLogo} alt="Inspire Logo" className='w-40 h-14'/>
