@@ -13,7 +13,7 @@ const CartItem = ({ item }) => {
             </div>
             <div className="flex-grow">
                 <Link href={`/product/${item.id}`} className='text-xl font-medium hover:underline duration-150'>{item.name}</Link>
-                <p className='font-bold'>${item.price * item.quantity}</p>
+                <p className='font-bold'>${item.price}</p>
                 <p className='text-base-200'>Size: {item.selectedSize.name}</p>
                 <div className="flex mt-5 justify-between items-center w-full">
                     <div className="flex items-center ">

@@ -49,7 +49,11 @@ const Cart = ({cartOpen, setCartOpen}) => {
                         <p>${total}</p>
                     </div>
                     <div className="px-5 w-full mt-5">
-                        <button className="btn w-full bg-white text-black hover:text-white"> Review + Checkout</button>
+                        <button
+                            onClick={()=>router.push('/checkout/billing-info')}
+                            className="btn w-full bg-white text-black hover:text-white">
+                                Review + Checkout
+                        </button>
                     </div>
                 </div>
             }

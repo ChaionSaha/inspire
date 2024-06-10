@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "name": "Bkash",
+    "number": "01700000000",
+    "type": "Personal",
+    "img": "https://i.ibb.co/kX3hC5t/bkash.png"
+  },
+  {
+    "id": 2,
+    "name": "Nagad",
+    "number": "01700000000",
+    "type": "Personal",
+    "img": "https://i.ibb.co/87QB2jS/nagad.png"
+  },
+  {
+    "id": 3,
+    "name": "Rocket",
+    "number": "01700000000",
+    "type": "Personal",
+    "img": "https://i.ibb.co/Zhr8JrP/dutch-bangla-rocket-seeklogo.png"
+  },
+  {
+    "id": 4,
+    "name": "Upay",
+    "number": "01700000000",
+    "type": "Personal",
+    "img": "https://i.ibb.co/WHKVJTV/upay-seeklogo.png"
+  }
+]
