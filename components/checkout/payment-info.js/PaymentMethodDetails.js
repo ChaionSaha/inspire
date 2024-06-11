@@ -1,7 +1,7 @@
 import { TickIcon } from "@/assets/icons/CustomIcon";
 import CustomInput from "@/components/Shared/CustomInput";
 import { clearCart } from "@/lib/store";
-import { Button, Spinner } from "@nextui-org/react";
+import { Button, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, Spinner, useDisclosure } from "@nextui-org/react";
 import axios from "axios";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
@@ -14,6 +14,7 @@ const PaymentMethodDetails = ({ paymentMethods, selectedPaymentMethod }) => {
     const [loading, setLoading] = useState(false);
 
     const router = useRouter();
+    const {isOpen, onOpenChange, onOpen}=useDisclosure()
     
     const cart = useSelector(state => state.cart.cart);
     const billingInfo = useSelector(state => state.cart.billingInfo);
@@ -42,10 +43,10 @@ const PaymentMethodDetails = ({ paymentMethods, selectedPaymentMethod }) => {
         axios.post('/api/place-order', {
             ...formData,
             cart,
-            billingInfo
+            billingInfo,
+            selectedMethodDetails
         }).then(() => {
-            document.getElementById('success_modal').showModal();
-            
+            onOpen();
         }).catch(err => { setErr(err.response.data.message) })
             .finally(() => setLoading(false));
     }
@@ -88,22 +89,39 @@ const PaymentMethodDetails = ({ paymentMethods, selectedPaymentMethod }) => {
                     </Button>
                 </div>
             </form>
-            <dialog id="success_modal" className="modal">
-                <div className="modal-box py-16 flex flex-col items-center">
-                    <TickIcon className='w-20 h-20 fill-success' />
-                    <p className="mt-5 text-2xl">Your order has been placed!</p>
-                    <div className="modal-action mt-10">
-                        <form method="dialog">
-                            <button onClick={() =>
-                            {
-                                router.push('/');
-                                dispatch(clearCart());
-                            }
-                            } className="btn text-sm">Back to home</button>
-                        </form>
-                    </div>
-                </div>
-            </dialog>
+            <Modal
+                isDismissable={false}
+                isKeyboardDismissDisabled={true}
+                hideCloseButton={true}
+                isOpen={isOpen}
+                onOpenChange={onOpenChange}
+            >
+                <ModalContent>
+                    {(onClose) => (
+                        <>
+                            <ModalHeader></ModalHeader>
+                            <ModalBody className="flex flex-col items-center">
+                                <TickIcon className='w-20 h-20 fill-success' />
+                                <p className="mt-5 text-2xl font-semibold">Your order has been placed!</p>
+                            </ModalBody>
+                            <ModalFooter className="flex mt-5 justify-center">
+                                <Button
+                                    color="primary"
+                                    variant="bordered"
+                                    className="rounded text-base border font-medium"
+                                    onPress={() => {
+                                        onClose();
+                                        router.push('/');
+                                        dispatch(clearCart());
+                                    }
+                                    }>
+                                    Back to home
+                                </Button>
+                            </ModalFooter>
+                        </>
+                    )}
+                </ModalContent>
+            </Modal>
         </div>
     );
 }

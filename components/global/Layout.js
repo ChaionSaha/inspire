@@ -7,11 +7,17 @@ export default function Layout({ children }) {
     return (
         <div className="relative">
             {
-                router.asPath.includes('auth') ? '' :<Navbar/>
+                router.asPath.includes('auth') ||
+                    router.asPath.includes('invoice') ?
+                    '' :
+                    <Navbar />
             }
             {children}
             {
-                router.asPath.includes('auth') ? '' : <Footer/>
+                router.asPath.includes('auth') ||
+                    router.asPath.includes('invoice')
+                    ? '' :
+                    <Footer />
             }
         </div>
     )
