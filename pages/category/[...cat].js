@@ -8,7 +8,7 @@ export default function Index({ products, category }) {
     return (
         <AnimateLayout>
             <Title title={category.name} />
-            <div className="grid grid-cols-4 gap-10 container mx-auto py-10">
+            <div className="grid lg:grid-cols-4 gap-10 container px-5 lg:px-0 mx-auto py-10">
                 {
                     products.map((product, i) => (
                         <Product key={i} item={product}/>

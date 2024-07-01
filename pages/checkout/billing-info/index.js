@@ -46,11 +46,11 @@ const Index = () => {
     return (
         <AnimateLayout>
             <Title title='Billing Information'/>
-            <div className="container flex justify-between mx-auto my-16">
-                <div className="w-[55%]">
-                    <p className="text-4xl font-bold">Billing Information</p>
+            <div className="container px-5 lg:px-0 flex flex-col lg:flex-row justify-between mx-auto my-16">
+                <div className="lg:w-[55%] w-full">
+                    <p className="lg:text-4xl text-2xl font-bold mt-10 lg:mt-0">Billing Information</p>
                     <form onSubmit={handleSubmit(handleInfoSubmit)} className="my-10 flex flex-col gap-5">
-                        <div className="grid grid-cols-2 gap-5">
+                        <div className="grid lg:grid-cols-2 gap-5">
                             <CustomInput control={control} name={'firstName'} label={'First Name'} />
                             <CustomInput control={control} name={'lastName'} label={'Last Name'} />
                         </div>
@@ -70,8 +70,8 @@ const Index = () => {
                         </div>
                     </form>
                 </div>
-                <div className="w-[35%]">
-                    <p className="text-4xl font-bold">Order Summary</p>
+                <div className="lg:w-[35%] w-full order-first lg:order-last">
+                    <p className="lg:text-4xl text-2xl font-bold">Order Summary</p>
                     <div className="my-10 flex flex-col gap-5">
                         {
                             cart.map((c, i) =>

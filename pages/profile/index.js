@@ -13,7 +13,7 @@ const Index = ({ user, userOrders = [] }) => {
     return (
         <AnimateLayout>
             <Title title={'Profile'}/>
-            <div className="container mx-auto my-10">
+            <div className="container px-5 lg:px-0 mx-auto my-10 profile-order-table">
                 <p className="text-3xl font-semibold">Hello {user.firstName} {user.lastName}</p>
                 <p className="mt-10 text-xl font-medium">Your Orders</p>
                 <div className="overflow-x-auto mt-5">

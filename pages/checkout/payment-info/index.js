@@ -29,7 +29,7 @@ const Index = ({paymentMethods, user}) => {
     return (
         <AnimateLayout>
             <Title title={'Payment Info'} />
-            <div className="container grid grid-cols-2 gap-x-28 mx-auto my-16">
+            <div className="container px-5 lg:px-0 grid lg:grid-cols-2 gap-x-28 gap-y-10 mx-auto my-16">
                 <PaymentMethodSelection
                     selectedGateway={selectedGateway}
                     setSelectedGateway={setSelectedGateway}

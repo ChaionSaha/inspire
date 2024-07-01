@@ -57,7 +57,7 @@ const Index =  ({session}) => {
                     <Image src={inspireLogo} alt="Inspire Logo" className='w-40 h-14'/>
                 </Link>
                 <p className='text-xl mt-3'>Login to your account</p>
-                <form onSubmit={handleSubmit(handleLogin)} className='w-[30%] mt-10 flex flex-col gap-y-5'>
+                <form onSubmit={handleSubmit(handleLogin)} className='lg:w-[30%] w-full px-5 lg:px-0 mt-10 flex flex-col gap-y-5'>
                     <CustomInput control={control} name={'email'} label={'Email'} type={'email'} />
                     <CustomPasswordInput control={control} name={'password'} />
                     <div className="flex flex-col">

@@ -21,7 +21,7 @@ const Cart = ({cartOpen, setCartOpen}) => {
     },[cart])
 
     return (
-        <div className={`fixed bg-primary h-[100vh] flex flex-col  w-[25%] z-[1000] top-0 right-0 duration-300 ${cartOpen ? 'translate-x-0' : 'translate-x-[100%]'}`}>
+        <div className={`fixed bg-primary h-[100vh] flex flex-col  lg:w-[25%] w-full z-[1000] top-0 right-0 duration-300 ${cartOpen ? 'translate-x-0' : 'translate-x-[100%]'}`}>
             <div className="px-5 py-7 flex justify-between items-center">
                 <p className='text-3xl font-medium text-white px-5'>Shopping Bag</p>
                 <button onClick={()=>setCartOpen(false)} className='text-white text-4xl'><i className='bi bi-x'></i></button>

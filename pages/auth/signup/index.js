@@ -76,8 +76,8 @@ const Index = () => {
                     <Image src={inspireLogo} alt="Inspire Logo" className='w-40 h-14'/>
                 </Link>
                 <p className='text-xl mt-3'>Create a new account</p>
-                <form onSubmit={handleSubmit(handleSignUp)} className='w-[40%] mt-10 flex flex-col gap-y-5'>
-                    <div className="grid grid-cols-2 gap-x-5">
+                <form onSubmit={handleSubmit(handleSignUp)} className='lg:w-[40%] w-full px-5 lg:px-0 mt-10 flex flex-col gap-y-5'>
+                    <div className="grid lg:grid-cols-2 gap-5">
                         <CustomInput control={control} name={'firstName'} label={'First Name'} type={'text'} />
                         <CustomInput control={control} name={'lastName'} label={'Last Name'} type={'text'} />
                     </div>

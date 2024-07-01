@@ -11,7 +11,27 @@ const settings = {
     slidesToShow: 3,
     slidesToScroll: 1,
     arrows: false,
-    centerPadding: '1px'
+    centerPadding: '1px',
+    responsive: [
+        {
+            breakpoint: 1024,
+            settings: {
+                slidesToShow: 3,
+            }
+        },
+        {
+            breakpoint: 600,
+            settings: {
+                slidesToShow: 2,
+            }
+        },
+        {
+            breakpoint: 480,
+            settings: {
+                slidesToShow: 1,
+            }
+        }
+    ]
 };
 
 const NewArrivalSection = ({ products }) => {
@@ -19,7 +39,7 @@ const NewArrivalSection = ({ products }) => {
     const dispacth = useDispatch();
 
     return (
-        <div className="container mx-auto my-10">
+        <div className="container px-5 lg:px-0 mx-auto my-10">
             <p className="font-bold text-3xl capitalize">more new arrivals You'll Love</p>
             <div className="mt-5 slider-container relative">
                 <button

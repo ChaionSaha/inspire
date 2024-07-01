@@ -3,7 +3,9 @@ const FinalSection = () => {
     return (
         <div className="relative h-[80vh] w-full flex justify-center items-end text-center text-white mt-24"
             style={{
-                background: `linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.60) 100%), url('https://i.ibb.co/Fw20s00/slider-7.png') lightgray`
+                background: `linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.60) 100%), url('https://i.ibb.co/Fw20s00/slider-7.png') lightgray`,
+                backgroundPosition: 'center',
+
             }}
         >
             <div className="flex flex-col py-20 gap-y-5">

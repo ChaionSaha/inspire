@@ -9,7 +9,7 @@ const PaymentMethodSelection = ({selectedGateway, setSelectedGateway, paymentMet
                 value={selectedGateway}
                 onValueChange={setSelectedGateway}
                 classNames={{
-                    wrapper: 'grid grid-cols-3 gap-5 gap-y-10'
+                    wrapper: 'grid lg:grid-cols-3 gap-5 gap-y-10'
                 }}
             >
                 {

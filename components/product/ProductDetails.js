@@ -1,13 +1,27 @@
+import { NextIcon, PrevIcon } from "@/assets/icons/CustomIcon";
 import { addToCart } from "@/lib/store";
 import { Accordion, AccordionItem, Radio, RadioGroup } from "@nextui-org/react";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
+import Slider from "react-slick";
+
+const settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: false,
+    centerPadding: '1px',
+};
 
 const ProductDetails = ({product}) => {
     const [selectedSize, setSelectedSize] = useState('');
     const [itemCount, setItemCount] = useState(1);
     const dispatch = useDispatch();
+    const sliderRef = useRef(null);
+
 
     useEffect(() => {
         console.log(selectedSize);
@@ -15,8 +29,8 @@ const ProductDetails = ({product}) => {
 
     return (
         <div className="container mx-auto py-10">
-            <div className="flex gap-x-10">
-                <div className="w-[60%] grid grid-cols-2 gap-3">
+            <div className="flex flex-col lg:flex-row gap-x-10">
+                <div className="lg:w-[60%] w-full hidden lg:grid lg:grid-cols-2 px-5 lg:px-0 gap-3">
                     {
                         product.images.map((image, i) => (
                             <div key={i} className="relative h-[65vh]">
@@ -24,8 +38,33 @@ const ProductDetails = ({product}) => {
                             </div>
                         ))
                     }
+                    
                 </div>
-                <div className="w-[40%]">
+                <div className="mt-5 relative px-5 lg:hidden">
+                    
+                    <Slider {...settings} ref={sliderRef} >
+                        {
+                            product.images.map((image, i) => (
+                                <div key={i} className="relative h-[65vh]">
+                                    <Image quality={100} src={image.img} alt={product.name} className="object-cover object-top" fill/>
+                                </div>
+                            ))
+                        }
+                    </Slider>
+                    <div className="mt-5 mb-10 flex items-center gap-x-3">
+                        <button
+                            onClick={()=>sliderRef.current.slickPrev()}
+                        >
+                            <PrevIcon className='w-5 h-5'/>
+                        </button>
+                        <button
+                            onClick={()=>sliderRef.current.slickNext()}
+                        >
+                            <NextIcon className='w-5 h-5'/>
+                        </button>
+                    </div>
+                </div>
+                <div className="lg:w-[40%] w-full px-5 lg:px-0">
                     <p className="text-4xl font-bold">{product.name}</p>
                     <p className="text-2xl font-bold mt-5">$ {product.price}</p>
                     <p className="mt-10 text-xl"> <span className="font-semibold">Color:</span> {product.color} </p>
@@ -36,7 +75,7 @@ const ProductDetails = ({product}) => {
                             onValueChange={setSelectedSize}
                             className="mt-3"
                             classNames={{
-                                wrapper: 'grid grid-cols-4 gap-x-5 gap-y-7'
+                                wrapper: 'grid lg:grid-cols-4 grid-cols-3 gap-x-5 gap-y-7'
                             }}
                         >
                             {
